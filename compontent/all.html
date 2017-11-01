@@ -12,13 +12,74 @@
 	</head>
 	<body>
 		<div class="mui-content">
-		    more and more
+		    <div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				<a class="mui-control-item mui-active" data-index='1'>
+					音乐
+				</a>
+				<a class="mui-control-item" data-index='2'>
+					视频
+				</a>
+				<a class="mui-control-item"  data-index='3'>
+					电台
+				</a>
+			</div>
 		</div>
 	</body>
 	<script src="../static/js/mui.min.js"></script>
 	<script type="text/javascript">
-		mui.init();
+		var subpageArr = [{
+				url: 'allpage/sub1.html',
+				id: 'sub1.html',
+				styles: {
+					top: '44px',
+					bottom: '44px',
+					width: "100%"
+				}
+			},
+			{
+				url: 'allpage/sub2.html',
+				id: 'sub2.html',
+				styles: {
+					left: '100%',
+					top: '44px',
+					bottom: '44px',
+					width: "100%"
+				}
+			},
+			{
+				url: 'allpage/sub3.html',
+				id: 'sub3.html',
+				styles: {
+					left: '200%',
+					top: '44px',
+					bottom: '44px',
+					width: "100%"
+				}
+			}
+		]
+		mui.init({
+			subpages: subpageArr
+		});
+		mui('#sliderSegmentedControl').on('tap','.mui-control-item',function(e){
+			var index = e.target.getAttribute('data-index');
+			changSub(index)
+		})
+		function changSub(index) {
+			var sub1 = plus.webview.getWebviewById('sub1.html');
+			var sub2 = plus.webview.getWebviewById('sub2.html');
+			var sub3 = plus.webview.getWebviewById('sub3.html');
+			sub1.setStyle({
+				left: (index - 1) * 100 + "%"
+			});
+			sub2.setStyle({
+				left: (2 - index) * 100 + "%"
+			});
+			sub3.setStyle({
+				left: (3 - index) * 100 + "%"
+			});
+		}
 		mui.plusReady(function () {
+			
 		})
 	</script>
 </html>

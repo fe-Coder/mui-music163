@@ -190,3 +190,31 @@ a{
 .right-icon-box1 .icon-liebiao{
 	font-size: 0.45rem;
 }
+/*更多功能*/
+#sliderSegmentedControl .mui-active{
+	color: #dd524d;
+    border-bottom: 2px solid #dd524d;
+}
+#sliderSegmentedControl{
+	background: white;
+}
+/*.sliderSegmentedControl{
+	display: flex;
+	flex-flow: row;
+	display: -webkit-flex;
+	font-size: 0.28rem;
+	background: white;
+	line-height: 1;
+}
+.sliderSegmentedControl div{
+	flex: 1;
+	text-align: center;
+}
+.control-item a{
+	display: inline-block;
+    padding: 0.2rem 0.3rem;
+}
+.control-active a{
+    color: #dd524d;
+    border-bottom: 2px solid #dd524d;
+}*/

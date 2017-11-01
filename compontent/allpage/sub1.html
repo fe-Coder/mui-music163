@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../../static/js/mui.min.js"></script>
+		<link href="../../static/css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body style="font-size:36px; line-height:50px;">
+		第1个页面
+		<script type="text/javascript">
+			var _self, _next, timer;
+			mui.plusReady(function() {
+				_self = plus.webview.currentWebview();
+				_next = plus.webview.getWebviewById('sub2.html');
+				index = plus.webview.getLaunchWebview();
+				_self.drag({
+						direction: "left",
+						moveMode: 　 "followFinger"
+					}, {
+						view　: 　_next,
+						moveMode: "follow"
+					},
+					function(e) {
+					}
+				);
+			});
+		</script>
+	</body>
+
+</html>

@@ -238,9 +238,13 @@
 			},
 			"compontent/all.html": {
 				"resources": [
-					"static/css/mui.min.css"
+					"static/css/mui.min.css",
+					"compontent/allpage/sub1.html"
 				],
-				"refer": [],
+				"refer": [
+					"compontent/allpage/sub3.html",
+					"compontent/allpage/sub2.html"
+				],
 				"priority": 0
 			}
 		},
