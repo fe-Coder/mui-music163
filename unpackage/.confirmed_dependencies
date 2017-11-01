@@ -1,0 +1,51 @@
+{
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "/static/css/mui.min.css",
+      "/static/js/mui.min.js",
+      "static/js/mui.min.js",
+      "static/fonts/mui.ttf",
+      "static/css/mui.min.css",
+      "static/css/music.css",
+      "static/js/auto-size.js",
+      "indexMenu.html",
+      "static/js/webviewGroup.js",
+      "compontent/music.html"
+    ],
+    "refer": [
+      "indexMenu.html",
+      "compontent/music.html",
+      "compontent/all.html",
+      "compontent/friend.html"
+    ]
+  },
+  "indexMenu.html": {
+    "resources": [
+      "static/css/mui.min.css",
+      "static/css/music.css",
+      "static/images/userimg.jpg",
+      "static/images/bg.jpg"
+    ]
+  },
+  "compontent/music.html": {
+    "resources": [
+      "/static/js/auto-size.js",
+      "/static/js/mui.min.js",
+      "static/css/music.css",
+      "static/css/mui.min.css"
+    ]
+  },
+  "compontent/friend.html": {
+    "resources": [
+      "static/css/mui.min.css"
+    ]
+  },
+  "compontent/all.html": {
+    "resources": [
+      "static/css/mui.min.css"
+    ]
+  }
+}

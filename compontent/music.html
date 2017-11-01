@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>音乐主页</title>
+		<link href="../static/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_2d9gf9alx3v26gvi.css" />
+		<script src="../static/js/auto-size.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../static/css/music.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<!--下拉刷新容器-->
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view usermsg-list">
+					    <li class="mui-table-view-cell">
+					    	<i class="iconfont icon-yinyue allcolor"></i>
+					    	<p class="list-right-title">本地音乐<span>(0)</span></p>
+					    </li>
+					    <li class="mui-table-view-cell">
+					    	<i class="iconfont icon-yinyue allcolor"></i>
+					    	<p class="list-right-title">最近播放<span>(0)</span></p>
+					    </li>
+					    <li class="mui-table-view-cell">
+					    	<i class="iconfont icon-yinyue allcolor"></i>
+					    	<p class="list-right-title">下载管理<span>(0)</span></p>
+					    </li>
+					    <li class="mui-table-view-cell">
+					    	<i class="iconfont icon-yinyue allcolor"></i>
+					    	<p class="list-right-title">我的电台<span>(0)</span></p>
+					    </li>
+					    <li class="mui-table-view-cell">
+					    	<i class="iconfont icon-yinyue allcolor"></i>
+					    	<p class="list-right-title">我的收藏<span>(0)</span></p>
+					    </li>
+					</ul>
+					<p class="mui-clearfix songlist" @click="showSong">
+						<i :class="showSongFlag ? 'mui-icon mui-icon-arrowright' : 'mui-icon mui-icon-arrowdown'"></i>
+						<span>创建的歌单（0）</span>
+						<i class="mui-icon mui-icon-gear"></i>
+					</p>
+					<ul class="mui-table-view mui-table-view-chevron songlist-list" v-show="showSongFlag">
+						<li class="mui-table-view-cell mui-media">
+							<a class="mui-navigate-right">
+								<img class="mui-media-object mui-pull-left" src="../images/cbd.jpg">
+								<div class="mui-media-body">
+									CBD
+									<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a class="mui-navigate-right" href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="../images/yuantiao.jpg">
+								<div class="mui-media-body">
+									远眺
+									<p class="mui-ellipsis">静静的看这个世界，最后终于疯了</p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a class="mui-navigate-right">
+								<img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
+								<div class="mui-media-body">
+									幸福
+									<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a class="mui-navigate-right">
+								<img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
+								<div class="mui-media-body">
+									幸福
+									<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a class="mui-navigate-right">
+								<img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
+								<div class="mui-media-body">
+									幸福
+									<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a class="mui-navigate-right">
+								<img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
+								<div class="mui-media-body">
+									幸福
+									<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../static/js/mui.min.js"></script>
+	<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#pullrefresh',
+			data: {
+				showSongFlag:true
+			},
+			methods: {
+				/**
+				 * 下拉刷新具体业务实现
+				 */
+				pulldownRefresh: function() {
+					alert(1111)
+					var self = this;
+					self.getdata(true)
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+					}, 3000);
+				},
+				//获取数据
+				getdata: function(flag) {},
+				showSong:function(){
+					this.showSongFlag = this.showSongFlag ? false :true;
+				}
+			},
+			mounted: function() {
+				var self = this;
+				mui.init({
+					pullRefresh: {
+						container: "#pullrefresh", //下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+						down: {
+							style: 'circle', //必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
+							color: '#D33A31', //可选，默认“#2BD009” 下拉刷新控件颜色
+							height: '50px', //可选,默认50px.下拉刷新控件的高度,
+							range: '80px', //可选 默认100px,控件可下拉拖拽的范围
+							offset: 0, //可选 默认0px,下拉刷新控件的起始位置
+							callback: self.pulldownRefresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+						}
+					}
+				});
+			}
+		})
+	</script>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>音乐主页</title>
+		<script src="static/js/auto-size.js"></script>
+		<link href="static/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_2d9gf9alx3v26gvi.css" />
+		<script src="static/js/auto-size.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="static/css/music.css" />
+	</head>
+	<body>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper scroll-auto">
+				<div class="mui-scroll">
+					<div class="userbg">
+						<div class="user-box">
+							<img src="static/images/userimg.jpg" class="user-header" />
+							<div class="user-msg mui-clearfix">
+								<span>Wink</span><i class="lv">Lv.7</i>
+								<a class="sign-btn">签到</a>
+							</div>
+						</div>
+					</div>
+					<div class="user-list-box">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">我的消息</li>
+							<li class="mui-table-view-cell">会员中心</li>
+							<li class="mui-table-view-cell">商城</li>
+							<li class="mui-table-view-cell">在线听歌免流量</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">我的好友</li>
+							<li class="mui-table-view-cell">附近的人</li>
+
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">个性换肤</li>
+							<li class="mui-table-view-cell">听歌识曲</li>
+							<li class="mui-table-view-cell">定时停止播放</li>
+							<li class="mui-table-view-cell">扫一扫</li>
+							<li class="mui-table-view-cell">音乐闹钟</li>
+							<li class="mui-table-view-cell">驾驶模式</li>
+							<li class="mui-table-view-cell">音乐云盘</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<nav class="mui-bar mui-bar-tab offcanvasside-footer">
+				<a class="mui-tab-item">
+					<span class="mui-tab-label">夜间模式</span>
+				</a>
+				<a class="mui-tab-item">
+					<span class="mui-tab-label">设置</span>
+				</a>
+				<a class="mui-tab-item">
+					<span class="mui-tab-label">退出</span>
+				</a>
+			</nav>
+		</div>
+		<script src="static/js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init({
+				keyEventBind: {
+					backbutton: false,
+					menubutton: false
+				}
+			});
+			//获得侧滑主窗口webview对象
+			var main = null;
+			mui.plusReady(function () {
+				main = plus.webview.currentWebview().opener();
+			})
+			function closeMenu () {
+				mui.fire(main,"menu:swipeleft");
+			}
+			
+			//优化显示出来的侧滑菜单，只需监听该菜单的左滑事件，然后将其关闭即可；在菜单上右滑，不做任何操作；
+			window.addEventListener("swipeleft",closeMenu );
+			
+			mui.menu = closeMenu;
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005,
+				bounce: false,//滚动条是否有弹力默认是true
+        		indicators: false, //是否显示滚动条,默认是true
+			}); //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+		</script>
+</body>
+
+</html>

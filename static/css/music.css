@@ -1,0 +1,192 @@
+.first-header{
+	background: #D33A31;
+}
+.first-header a{
+	color: white;
+}
+a{
+	color: #333333;
+	text-decoration: none
+}
+.header-tab-title{
+	height: 44px;
+}
+.yinyue-size{
+	font-size: .4rem;
+}
+.wangyiyunyinlezizhi-size{
+	font-size: 0.52rem;
+	position:relative;
+	top: 0.02rem;
+}
+.shejiao-size{
+	font-size: 0.48rem;
+}
+.first-header .iconfont:not(:last-of-type){
+	margin-right: 0.3rem;
+}
+.offcanvasside-footer{
+	background: white;
+	font-size: 0.3rem;
+}
+.scroll-auto{
+	bottom: 51px;
+}
+.mui-scrollbar-indicator{
+	visibility: hidden;
+}
+/*侧边栏样式*/
+.userbg{
+	width: 100%;
+	height: 4.5rem;
+	background: url(../images/bg.jpg) no-repeat;
+	background-size:cover;
+	position: relative;
+}
+.user-header{
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 50%;
+}
+.user-box{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 0.2rem;
+	color: white;
+	font-size: 0.3rem;
+	width: 100%;
+}
+.user-msg{
+	padding: 0.2rem;
+}
+.lv,.sign-btn{
+	display: inline-block;
+	line-height: 1;
+	font-size: 0.25rem;
+	border-radius: 0.5rem;
+	border: 1px solid white;
+	padding:0 0.13rem;
+	margin-left: 0.2rem;
+	height: 0.33rem;
+	line-height: 0.33rem;
+}
+.sign-btn{
+	float: right;
+	color: white;
+	font-size:0.22rem;
+	line-height: 0.3rem;
+	height: 0.37rem;
+	line-height: 0.37rem;
+	padding: 0 0.2rem;
+}
+.mui-table-view::after,.mui-table-view::before,.usermsg-list .mui-table-view-cell::after{
+	background: none;
+}
+.user-list-box{
+	font-size: 0.35rem;
+}
+.user-list-box .mui-table-view:not(:last-of-type)::after{
+	background:#EEEEEE;
+	height: 0.2rem;
+}
+.header-tab-title .iconfont{
+	color: #E58882;
+}
+.header-tab-title .header-tab-active{
+	color: white;
+}
+/*主页列表*/
+.allcolor{
+	color: #D33A31;
+}
+.usermsg-list li{
+	position: relative;
+	padding:0 0.35rem;
+}
+.usermsg-list .iconfont{
+	position: absolute;
+	top: 0.325rem;
+}
+.list-right-title{
+	margin-left: 0.6rem;
+	border-bottom: 1px solid #EEEEEE;
+	padding: 0.3rem 0;
+	color: #333333;
+	font-size: 0.3rem;
+}
+.mui-table-view-cell .list-right-title :last-child{
+	border: none;
+}
+.list-right-title span{
+	font-size: 0.22rem;
+	display: inline-block;
+	margin-left: 0.05rem;
+	color: #919293
+}
+.songlist{
+	line-height: 1;
+	padding: 0.15rem 0.3rem;
+	color: #5c5d5d;
+	font-size: 0.24rem;
+	background: #e7e9e9;
+	margin-bottom: 0;
+}
+.songlist .mui-icon-arrowright,.songlist .mui-icon-arrowdown{
+	font-size: 0.3rem;
+}
+.songlist .mui-icon-gear{
+	float: right;
+	font-size: 0.3rem;
+}
+.songlist-list .mui-navigate-right:after, .mui-push-right:after{
+	content: '\e537'
+}
+/*底部播放器样式*/
+.footer-bar{
+	display: flex;
+	flex-flow: row;
+	display: -webkit-flex;
+	padding: 0.1rem;
+	border-top: 1px solid #EEEEEE;
+}
+.left-songimg{
+	height: 100%;
+    flex: 0 0 43px;
+}
+.footer-bar img{
+	width: 100%;
+	height: 100%;
+}
+.left-txt-song{
+	padding-left: 0.2rem;
+	flex: 1;
+}
+.song-txt{
+	width: 100%;
+	font-size: 0.22rem;
+}
+.left-txt-song{
+	font-size: 0.3rem;
+}
+.right-icon-box,.right-icon-box1{
+	flex:0 0 1rem;
+}
+.right-icon-box p,.right-icon-box1 p{
+	width:0.6rem;
+	height:0.6rem;
+	text-align: center;
+	line-height:0.6rem;
+	color: #4d4d4d;
+	margin:0.1rem auto;
+}
+.right-icon-box p{
+	border: 1px solid #4d4d4d;
+	border-radius: 50%;
+}
+.right-icon-box1 p{
+	padding-top: 0.05rem;
+}
+.right-icon-box1 .icon-liebiao{
+	font-size: 0.45rem;
+}
