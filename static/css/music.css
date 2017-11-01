@@ -80,7 +80,7 @@ a{
 	line-height: 0.37rem;
 	padding: 0 0.2rem;
 }
-.mui-table-view::after,.mui-table-view::before,.usermsg-list .mui-table-view-cell::after{
+.mui-table-view::after,.mui-table-view::before,.usermsg-list .mui-table-view-cell::after,.user-list-box .mui-table-view-cell::after{
 	background: none;
 }
 .user-list-box{

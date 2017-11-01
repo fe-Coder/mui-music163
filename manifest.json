@@ -204,7 +204,8 @@
 				],
 				"refer": [
 					"compontent/all.html",
-					"compontent/friend.html"
+					"compontent/friend.html",
+					"guide.html"
 				],
 				"priority": 0
 			},
