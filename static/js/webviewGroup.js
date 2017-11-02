@@ -74,8 +74,10 @@ proto._onChange = function(webview) {
 	this.onChange({
 		index: webview.__mui_index
 	});
+	
 };
 proto._dragCallback = function(dir, fromWebview, view, viewId) {
+	console.log(view.id)
 	if(view === this.nativeView) { //需要创建webview
 		//第一步:初始化目标webview
 		this.webviewContexts[viewId].createWebview('drag');
@@ -197,7 +199,6 @@ proto.switchTab = function(id) {
 			'action': 'show'
 		},
 		function(e) {
-			//console.log("startAnimation callback...");
 			if(e.id === toWebview.id) {
 				isNew;
 				this.currentWebview = toWebview;

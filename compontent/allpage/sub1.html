@@ -7,11 +7,16 @@
 		<title></title>
 		<script src="../../static/js/mui.min.js"></script>
 		<link href="../../static/css/mui.min.css" rel="stylesheet" />
+		<script src="../../static/js/auto-size.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../../static/css/music.css" />
 	</head>
 
 	<body style="font-size:36px; line-height:50px;">
-		第1个页面
+		<div id="app">
+
+		</div>
 		<script type="text/javascript">
+			mui.init();
 			var _self, _next, timer;
 			mui.plusReady(function() {
 				_self = plus.webview.currentWebview();
@@ -24,10 +29,28 @@
 						view　: 　_next,
 						moveMode: "follow"
 					},
-					function(e) {
-					}
+					function(e) {}
 				);
+				createView();
 			});
+			// 创建原生View控件
+			function createView() {
+				var view = new plus.nativeObj.ImageSlider('test', {
+					top: '0',
+					left: '0px',
+					height: '200px',
+					width: '100%',
+					position: 'absolute',
+					images: [{
+						src: '../../static/images/bg.jpg'
+					}, {
+						src: '../../static/images/bg.jpg'
+					}, {
+						src: '../../static/images/bg.jpg'
+					}]
+				});
+				plus.webview.currentWebview().append(view);
+			}
 		</script>
 	</body>
 

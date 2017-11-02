@@ -68,15 +68,9 @@
 			var sub1 = plus.webview.getWebviewById('sub1.html');
 			var sub2 = plus.webview.getWebviewById('sub2.html');
 			var sub3 = plus.webview.getWebviewById('sub3.html');
-			sub1.setStyle({
-				left: (index - 1) * 100 + "%"
-			});
-			sub2.setStyle({
-				left: (2 - index) * 100 + "%"
-			});
-			sub3.setStyle({
-				left: (3 - index) * 100 + "%"
-			});
+			sub1.setStyle({left: (index - 1) * 100 + "%"});
+			sub2.setStyle({left: (2 - index) * 100 + "%"});
+			sub3.setStyle({left: (3 - index) * 100 + "%"});
 		}
 		mui.plusReady(function () {
 			

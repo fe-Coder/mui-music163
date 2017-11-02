@@ -12,7 +12,7 @@
 	<div id="app">
 		<header class="mui-bar mui-bar-nav first-header">
 			<a class="mui-icon mui-action-menu mui-icon-bars"></a>
-			<a class="mui-icon mui-icon-search mui-pull-right"></a>
+			<a class="mui-icon mui-icon-search mui-pull-right" onclick="showmask()"></a>
 			<h1 class="mui-title header-tab-title">
 				<a class="iconfont icon-yinyue yinyue-size mui-control-item header-tab-active" data-wid='music'></a>
 				<a class="iconfont icon-wangyiyunyinlezizhi wangyiyunyinlezizhi-size mui-control-item"  data-wid='all'></a>
@@ -49,7 +49,7 @@
 	showMenu = false;
 	window.plus ? plusReady() : document.addEventListener('plusready', plusReady, false);
 	function plusReady(){
-		//获取是否支持沉侵式状态栏
+		//获取是否支持沉浸式状态栏
 		var flag = plus.navigator.isImmersedStatusbar();
 		var topoffset = 45;
 		if(flag){
@@ -114,15 +114,9 @@
 			mui.openWindow({
 				id: 'guide',
 				url: 'guide.html',
-				styles: {
-					popGesture: "none"
-				},
-				show: {
-					aniShow: 'none'
-				},
-				waiting: {
-					autoShow: false
-				}
+				styles: {popGesture: "none"},
+				show: {aniShow: 'none'},
+				waiting: {autoShow: false}
 			});
 		}
 	}
@@ -198,5 +192,9 @@
 			status:function(){this.statusMusic = this.statusMusic ? false : true;}
 		}
 	})
+	var mask = mui.createMask();
+	function showmask(){
+		mask.show()
+	}
 </script>
 </html>

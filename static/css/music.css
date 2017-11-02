@@ -218,3 +218,139 @@ a{
     color: #dd524d;
     border-bottom: 2px solid #dd524d;
 }*/
+/*音乐*/
+.mui-slider{
+	height: 3.6rem;
+}
+.mui-slider-indicator .mui-active.mui-indicator{
+	background: #D33A31;
+	opacity: 0.7;
+}
+.mui-slider-indicator .mui-indicator{
+	box-shadow: none;
+	background: rgba(170, 170, 170, 0.7);
+}
+.mui-slider-indicator{
+	line-height: 1;
+	bottom: 0;
+}
+/*社交*/
+.hot-talk{
+	line-height: 1;
+	padding: 0.3rem;
+	background: #f2f4f5;
+	font-size: 0.26rem;
+	margin: 0;
+}
+.hot-talk .mui-icon{
+	font-size: 0.3rem;
+	
+}
+.hot-box{
+	width: 2.5rem;
+	height: 1.5rem;
+}
+.hot-box img{
+	width: 100%;
+	height: 100%;
+}
+.mui-segmented-control-inverted{
+	min-height: 2rem;
+	
+	padding:0 0.3rem 0.5rem;
+	background: #f2f4f5;
+}
+.hot-box{
+	margin-right: 0.1rem;
+	float: left;
+	position: relative;
+}
+.mui-segmented-control.mui-scroll-wrapper .mui-scroll{
+	height: 100%;
+	width: 10.4rem;
+	white-space: normal;
+}
+.mask-page{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 0.28rem;
+	color: white;
+	text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 0.3rem;
+    word-break: break-all;
+    overflow: hidden;
+    line-height: 0.35rem;
+}
+.list-tag{
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow:row ;
+    -ms-flex-flow: row;
+    -webkit-flex-flow: row;
+    padding: 0.3rem;
+    border-top: 1px solid #E7E9E9;
+    background: #f2f4f5;
+}
+.header-list-user{
+	width: 1rem;
+	height:1rem;
+	flex: 0 0 1;
+	-moz-box-flex: 0 0 1rem;
+	-ms-flex: 0 0 0.8rem;
+	-webkit-flex: 0 0 1rem;
+}
+.right-list-box{
+	flex: 1;
+	-moz-box-flex:1;
+	-ms-flex: 1;
+	-webkit-flex: 1;
+	padding-left: 0.2rem;
+}
+.userheader{
+	width: 0.8rem;
+	height: 0.8rem;
+	display: block;
+	margin: 0 auto;
+	border-radius: 50%;
+}
+.user-msg-top{
+	margin: 0;
+	font-size: 0.28rem;
+	color: #353434;
+	
+}
+.user-msg-top a{
+	color: #007AFF;
+}
+.likethat{
+	float: right;
+	color: #CF2D28;
+}
+.list-time{
+	font-size: 0.22rem;
+	margin: 0.1rem 0 0;
+	line-height: 1;
+}
+.list-desc{
+	color: #333333;
+	line-height: 0.4rem;
+	margin: 0.1rem 0;
+}

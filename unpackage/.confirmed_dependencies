@@ -13,7 +13,8 @@
 			"static/js/auto-size.js",
 			"indexMenu.html",
 			"static/js/webviewGroup.js",
-			"compontent/music.html"
+			"compontent/music.html",
+			"compontent/all.html"
 		],
 		"refer": [
 			"indexMenu.html",
@@ -52,7 +53,13 @@
 		"refer": [
 			"compontent/allpage/sub3.html",
 			"compontent/allpage/sub2.html",
-			"compontent/allpage/sub1.html"
+			"compontent/allpage/sub1.html",
+			"compontent/allpage/sss.html"
+		]
+	},
+	"compontent/allpage/sub1.html": {
+		"refer": [
+			"compontent/allpage/new.html"
 		]
 	}
 }
