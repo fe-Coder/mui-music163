@@ -254,9 +254,8 @@ a{
 	width: 100%;
 	height: 100%;
 }
-.mui-segmented-control-inverted{
+.slider-indicator-left{
 	min-height: 2rem;
-	
 	padding:0 0.3rem 0.5rem;
 	background: #f2f4f5;
 }
@@ -297,6 +296,12 @@ a{
     overflow: hidden;
     line-height: 0.35rem;
 }
+.flex{
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
 .list-tag{
 	display: -webkit-box;
     display: -ms-flexbox;
@@ -305,14 +310,14 @@ a{
     flex-flow:row ;
     -ms-flex-flow: row;
     -webkit-flex-flow: row;
-    padding: 0.3rem;
+    padding: 0.2rem;
     border-top: 1px solid #E7E9E9;
     background: #f2f4f5;
 }
 .header-list-user{
 	width: 1rem;
 	height:1rem;
-	flex: 0 0 1;
+	flex: 0 0 1rem;
 	-moz-box-flex: 0 0 1rem;
 	-ms-flex: 0 0 0.8rem;
 	-webkit-flex: 0 0 1rem;
@@ -323,6 +328,12 @@ a{
 	-ms-flex: 1;
 	-webkit-flex: 1;
 	padding-left: 0.2rem;
+}
+.flex-1{
+	flex: 1;
+	-moz-box-flex:1;
+	-ms-flex: 1;
+	-webkit-flex: 1;
 }
 .userheader{
 	width: 0.8rem;
@@ -353,4 +364,83 @@ a{
 	color: #333333;
 	line-height: 0.4rem;
 	margin: 0.1rem 0;
+}
+/*视频样式*/
+.video-box{
+	width: 100%;
+	height: 3.5rem;
+	background: black;
+}
+.list-tag-txt{
+	font-size: 0.22rem;
+	line-height: 1;
+	margin-bottom: 0;
+	margin-top: 0.2rem;
+}
+/*其他*/
+.user-set-icon li .mui-icon{
+	font-size: 0.36rem;
+	color: #333333;
+	margin-right: 0.1rem;
+}
+.user-set-icon li{
+	float: left;
+	width: 25%;
+	line-height: 1;
+	padding: 0.2rem 0 0.1rem;
+	font-size: 0.26rem;
+	color: #919293
+}
+.user-set-icon li:last-child{
+	text-align: right;
+}
+/*音乐tab*/
+.mui-content .mui-table-view.music-tab{
+	font-size: 0.25rem;
+	margin: 0;
+	padding: 0.3rem 0;
+	background: #f2f4f5;
+    flex-flow:row ;
+    -ms-flex-flow: row;
+    -webkit-flex-flow: row;
+}
+.mui-content .mui-table-view.music-tab::after{
+	background: #c8c7cc;
+}
+.music-tab li{
+	text-align: center;
+}
+.music-tab li span{
+	display: block;
+	line-height: 1;
+	
+}
+.music-tab li span:first-child{
+	width: 1rem;
+	height: 1rem;
+	border: 1px solid #CF2D28;
+	text-align: center;
+	line-height: 1rem;
+	border-radius: 50%;
+	color: #CF2D28;
+	margin: 0 auto 0.2rem;
+}
+.music-tab li span:first-child .iconfont{
+	font-size: 0.4rem;
+}
+.other-title{
+	color: #333333;
+	line-height: 1;
+	margin-bottom: 0;
+	padding: 0.3rem 0;
+}
+.other-title span{
+	display: inline-block;
+	padding: 0 0.1rem 0 0.2rem;
+	border-left: 2px solid #CF2D28;
+	line-height: 1;
+}
+.other-title .mui-icon{
+	font-size: 0.35rem;
+	color:#8a8a8a;
 }

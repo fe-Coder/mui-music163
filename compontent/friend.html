@@ -14,12 +14,12 @@
 	<body>
 		<div class="mui-content">
 			<!--下拉刷新容器-->
-			<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="overflow-x: hidden;">
 				<div class="mui-scroll">
 					<p class="hot-talk">
 						<a href="javascript:;">热门话题 <i class="mui-icon mui-icon-arrowright"></i></a>
 					</p>
-					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted slider-indicator-left">
 						<div class="mui-scroll mui-clearfix">
 							<div class="hot-box">
 								<img src="../static/images/userimg.jpg" />
@@ -53,6 +53,38 @@
 								<p class="list-desc">
 									杨悦杀意合唱《奇兵神犬》主题曲，期待播出！！
 								</p>
+								<!--视频样式-->
+								<div class="video-box"></div>
+								<p class="list-tag-txt">——GIF拯救世界，快来收图了！</p>
+								<ul class="mui-table-view user-set-icon mui-clearfix">
+									<li><i class="mui-icon mui-icon-paperclip"></i>55</li>
+									<li><i class="mui-icon mui-icon-chatboxes"></i>55</li>
+									<li><i class="mui-icon mui-icon-redo"></i>55</li>
+									<li><i class="mui-icon mui-icon-more"></i></li>
+								</ul>
+							</div>
+						</div>
+						<div class="list-tag">
+							<div class="header-list-user">
+								<img src="../static/images/header.jpg" class="userheader"/>
+							</div>
+							<div class="right-list-box">
+								<p class="user-msg-top mui-clearfix">
+									<a href="javascript:;">多爸爸</a> 发布视频： <span class="likethat">+ 关注</span>
+								</p>
+								<p class="list-time">10月31日</p>
+								<p class="list-desc">
+									杨悦杀意合唱《奇兵神犬》主题曲，期待播出！！
+								</p>
+								<!--视频样式-->
+								<div class="video-box"></div>
+								<p class="list-tag-txt">——GIF拯救世界，快来收图了！</p>
+								<ul class="mui-table-view user-set-icon mui-clearfix">
+									<li><i class="mui-icon mui-icon-paperclip"></i>55</li>
+									<li><i class="mui-icon mui-icon-chatboxes"></i>55</li>
+									<li><i class="mui-icon mui-icon-redo"></i>55</li>
+									<li><i class="mui-icon mui-icon-more"></i></li>
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -110,7 +142,7 @@
 					startY: 0, //初始化时滚动至y
 					indicators: false, //是否显示滚动条
 					deceleration: 0.0006, //阻尼系数,系数越小滑动越灵敏
-					bounce: true //是否启用回弹
+					bounce: false //是否启用回弹
 				});
 			}
 		})
