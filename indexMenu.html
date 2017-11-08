@@ -12,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="static/css/music.css" />
 	</head>
 	<body>
-		<div class="mui-content">
+		<div class="mui-content" id="app">
 			<div class="mui-scroll-wrapper scroll-auto">
 				<div class="mui-scroll">
 					<div class="userbg">
@@ -61,31 +61,49 @@
 			</nav>
 		</div>
 		<script src="static/js/mui.min.js"></script>
+		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
 		<script type="text/javascript" charset="utf-8">
-			mui.init({
-				keyEventBind: {
-					backbutton: false,
-					menubutton: false
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				main:null
+			},
+			created(){
+				this.plusinit()
+			},
+			methods:{
+				//初始化执行操作
+				plusinit:function(){
+					var self = this;
+					self.plusReady = mui.plusReady(function(){
+						self.main = plus.webview.currentWebview().opener();
+					})
+				},
+				//关闭侧滑
+				closeMenu:function  () {
+					mui.fire(self.main,"menu:swipeleft");
 				}
-			});
-			//获得侧滑主窗口webview对象
-			var main = null;
-			mui.plusReady(function () {
-				main = plus.webview.currentWebview().opener();
-			})
-			function closeMenu () {
-				mui.fire(main,"menu:swipeleft");
+			},
+			mounted:function(){
+				mui.init({
+					keyEventBind: {
+						backbutton: false,
+						menubutton: false
+					}
+				});
+				mui('.mui-scroll-wrapper').scroll({
+					deceleration: 0.0005,
+					bounce: false,//滚动条是否有弹力默认是true
+	        		indicators: false, //是否显示滚动条,默认是true
+				}); //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+				//优化显示出来的侧滑菜单，只需监听该菜单的左滑事件，然后将其关闭即可；在菜单上右滑，不做任何操作；
+				window.addEventListener("swipeleft",this.closeMenu );
+				mui.menu = this.closeMenu;
 			}
+		})
 			
-			//优化显示出来的侧滑菜单，只需监听该菜单的左滑事件，然后将其关闭即可；在菜单上右滑，不做任何操作；
-			window.addEventListener("swipeleft",closeMenu );
 			
-			mui.menu = closeMenu;
-			mui('.mui-scroll-wrapper').scroll({
-				deceleration: 0.0005,
-				bounce: false,//滚动条是否有弹力默认是true
-        		indicators: false, //是否显示滚动条,默认是true
-			}); //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			
 		</script>
 </body>
 

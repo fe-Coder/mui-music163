@@ -9,37 +9,42 @@
 		<link href="../../static/css/mui.min.css" rel="stylesheet" />
 	</head>
 
-	<body style="font-size:36px; line-height:50px;">
-		第2个页面
-		<script type="text/javascript">
-			var _self, _next, timer;
-			mui.plusReady(function() {
-				_self = plus.webview.currentWebview();
-				_prev = plus.webview.getWebviewById('sub1.html');
-				_next = plus.webview.getWebviewById('sub3.html');
-				index = plus.webview.getLaunchWebview();
-				_self.drag({
-						direction: "right",
-						moveMode: 　 "followFinger"
-					}, {
-						view　: 　_prev,
-						moveMode: "follow"
-					},
-					function(e) {
-					}
-				);
-				_self.drag({
-						direction: "left",
-						moveMode: 　 "followFinger"
-					}, {
-						view　: 　_next,
-						moveMode: "follow"
-					},
-					function(e) {
-					}
-				);
-			});
-		</script>
+	<body>
+		
 	</body>
-
+	<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				_self:null,
+				_next:null,
+				timer:null
+			},
+			created(){
+				this.plusinit()
+			},
+			methods:{
+				//初始化执行操作
+				plusinit:function(){
+					var self = this;
+					self.plusReady = mui.plusReady(function(){
+						self._self = plus.webview.currentWebview();
+						self._prev = plus.webview.getWebviewById('sub1.html');
+						self._next = plus.webview.getWebviewById('sub3.html');
+						self.index = plus.webview.getLaunchWebview();
+						self._self.drag({direction:"right",moveMode: "followFinger"}, {view:self._prev,moveMode:"follow"},
+							function(e) {}
+						);
+						self._self.drag({direction: "left",moveMode: "followFinger"}, {view:self._next,moveMode: "follow"},
+							function(e) {}
+						);
+					})
+				},
+			},
+			mounted:function(){
+				mui.init();
+			}
+		})
+	</script>
 </html>

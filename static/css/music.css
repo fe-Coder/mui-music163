@@ -425,9 +425,6 @@ a{
 	color: #CF2D28;
 	margin: 0 auto 0.2rem;
 }
-.music-tab li span:first-child .iconfont{
-	font-size: 0.4rem;
-}
 .other-title{
 	color: #333333;
 	line-height: 1;
@@ -443,4 +440,131 @@ a{
 .other-title .mui-icon{
 	font-size: 0.35rem;
 	color:#8a8a8a;
+}
+.view-tab-img{
+	display: block;
+	margin: 0.15rem auto;
+}
+.mui-list-desc{
+	white-space: normal;
+    text-align: left;
+    font-size: 0.24rem;
+    line-height: 0.3rem;
+    padding: 0 0.1rem;
+    height: 0.6rem;
+}
+.media-object{
+	width: 100%;
+	height: 2.15rem;
+}
+.once-table .flex-1:first-child{
+	margin-right: 0.1rem;
+}
+.list-content{
+	padding-top:160px;
+	background: #f2f4f5;
+}
+.list-content .mui-table-view{
+	background: #f2f4f5;
+}
+.once-table-warp{
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+}
+.once-table-warp li{
+	width: 49%;
+	flex: 0 0 49%;
+}
+.once-table-warp li:nth-of-type(2n){
+	margin-left: 0.12rem;
+}
+.once-table-warp li.flex-1:first-child{
+	margin-right: 0;
+}
+.song-title1{
+    display: block;
+    text-align: left;
+    padding: 0 0.1rem;
+    font-size: 0.24rem;
+    line-height: 1;
+}
+.once-table-warp .song-txt{
+	line-height: 1;
+	padding:0.1rem;
+}
+.column-desc{
+	padding: 0.3rem 1rem 0.3rem 0.3rem
+}
+.column-img{
+	flex: 0 0 2.7rem;
+	height: 100%;
+}
+.view-only-lan{
+	height:2rem;
+	margin: 0;
+	padding: 0;
+}
+.column-box{
+	font-size: 0.28rem;
+	color: #333333;
+	margin-bottom: 0;
+}
+.column-tag{
+	font-size: 0.2rem;
+	display: inline-block;
+	border: 1px solid #FF0000;
+	line-height: 1;
+	padding:0.07rem 0.1rem 0.05rem 0.1rem;
+	margin-right: 0.1rem;
+	color: #FF0000;
+	
+}
+.bookeds{
+	font-size: 0.24rem;
+	color: #8f8f94;
+	line-height: 1;
+}
+.view-only-lan{
+	border-bottom: 1px solid #E7E9E9;
+	overflow: hidden;
+}
+.view-only-lan:not(:first-child) img{
+	margin-top: 0.05rem;
+}
+.end-foooter{
+	text-align: center;
+	padding:0.5rem 0;
+	border-top: 1px solid #e4e0e0;
+}
+.column-tag-btn{
+	display: inline-block;
+	color: #FF0000;
+	border: 1px solid #FF0000;
+	border-radius:10rem ;
+	padding: 0.1rem 0.3rem;
+	font-size: 0.24rem;
+	line-height: 1;
+}
+.end-txt{
+	font-size: 0.24rem;
+	margin-top: 0.3rem;
+}
+.end-txt .mui-icon{
+	font-size: 0.24rem;
+}
+.daychange-box{
+	position: relative;
+}
+.daychange-box a{
+	position: absolute;
+	width: 18px;
+	height: 13px;
+	background: #f2f4f5;
+	text-align: center;
+	color: #d33a31;
+	font-size: 0.28rem;
+	left: 50%;
+	top: 44%;
+	line-height: 13px;
+	margin-left: -9px;
 }

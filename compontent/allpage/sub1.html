@@ -12,40 +12,218 @@
 		<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_2d9gf9alx3v26gvi.css" />
 	</head>
 
-	<body style="font-size:36px; line-height:50px;">
-		<div class="mui-content" id="app" style="padding-top:160px;">
+	<body>
+		<div class="mui-content list-content" id="app">
 			<ul class="mui-table-view music-tab flex">
-				<li class="flex-1"><span><i class="iconfont icon-501"></i></span><span>私人FM</span></li>
-				<li class="flex-1"><span><i class="iconfont icon-rili"></i></span><span>每日推荐</span></li>
-				<li class="flex-1"><span><i class="iconfont icon-yinyue"></span></i><span>歌单</span></li>
-				<li class="flex-1"><span><i class="iconfont icon-paixing"></i></span><span>排行榜</span></li>
+				<li class="flex-1"><span><img src="../../static/images/FM.png" alt="FM" width='30' class="view-tab-img"/></span><span>私人FM</span></li>
+				<li class="flex-1"><span class="daychange-box"><a href="javascript:;">0</a><img src="../../static/images/day.png" alt="day" width='30' class="view-tab-img"/></span><span>每日推荐</span></li>
+				<li class="flex-1"><span><img src="../../static/images/list.png" alt="list" width='30' class="view-tab-img"/></span><span>歌单</span></li>
+				<li class="flex-1"><span><img src="../../static/images/top.png" alt="top" width='30' class="view-tab-img"/></span><span>排行榜</span></li>
 			</ul>
 			<p class="other-title"><span>推荐歌单</span><i class="mui-icon mui-icon-arrowright"></i></p>
 			<ul class="mui-table-view mui-grid-view">
 				<li class="mui-table-view-cell mui-media mui-col-xs-4">
 					<a href="#">
-						<img class="mui-media-object" src="../../static/images/header.jpg">
-						<div class="mui-media-body">幸福就是可以一起睡觉</div>
+						<img class="media-object" src="../../static/images/header.jpg">
+						<div class="mui-list-desc">幸福就是可以一起睡觉</div>
 					</a>
 				</li>
 				<li class="mui-table-view-cell mui-media mui-col-xs-4">
 					<a href="#">
-						<img class="mui-media-object" src="../../static/images/header.jpg">
-						<div class="mui-media-body">想要一间这样的木屋，静静的喝咖啡</div>
+						<img class="media-object" src="../../static/images/header.jpg">
+						<div class="mui-list-desc">想要一间这样的木屋，静静的喝咖啡</div>
 					</a>
 				</li>
 				<li class="mui-table-view-cell mui-media mui-col-xs-4">
-					<a href="#"><img class="mui-media-object" src="../../static/images/header.jpg">
-						<div class="mui-media-body">Color of SIP CBD</div>
+					<a href="#"><img class="media-object" src="../../static/images/header.jpg">
+						<div class="mui-list-desc">Color of SIP CBD</div>
 					</a>
 				</li>
 				<li class="mui-table-view-cell mui-media mui-col-xs-4">
 					<a href="#">
-						<img class="mui-media-object" src="../../static/images/header.jpg">
-						<div class="mui-media-body">静静看这世界</div>
+						<img class="media-object" src="../../static/images/header.jpg">
+						<div class="mui-list-desc">静静看这世界</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#"><img class="media-object" src="../../static/images/header.jpg">
+						<div class="mui-list-desc">Color of SIP CBD</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#">
+						<img class="media-object" src="../../static/images/header.jpg">
+						<div class="mui-list-desc">静静看这世界</div>
 					</a>
 				</li>
 			</ul>
+			<p class="other-title"><span>独家放送</span><i class="mui-icon mui-icon-arrowright"></i></p>
+			<ul class="mui-table-view flex once-table">
+				<li class="flex-1">
+					<a href="#"><img class="media-object" src="../../static/images/header.jpg">
+						<div class="mui-list-desc">Color of SIP CBD</div>
+					</a>
+				</li>
+				<li  class="flex-1">
+					<a href="#">
+						<img class="media-object" src="../../static/images/header.jpg">
+						<div class="mui-list-desc">静静看这世界</div>
+					</a>
+				</li>
+			</ul>
+			<div>
+				<img src="../../static/images/bg.jpg" alt="" width="100%"/>
+				<div class="mui-list-desc">静静看这世界</div>
+			</div>
+			<p class="other-title"><span>最新音乐</span><i class="mui-icon mui-icon-arrowright"></i></p>
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#">
+						<img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#">
+						<img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#"><img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#">
+						<img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#"><img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#">
+						<img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+			</ul>
+			<p class="other-title"><span>推荐MV</span><i class="mui-icon mui-icon-arrowright"></i></p>
+			<ul class="mui-table-view flex once-table once-table-warp">
+				<li class="flex-1">
+					<a href="#"><img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li  class="flex-1">
+					<a href="#">
+						<img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li class="flex-1">
+					<a href="#"><img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li  class="flex-1">
+					<a href="#">
+						<img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+			</ul>
+			<p class="other-title"><span>精品专栏</span><i class="mui-icon mui-icon-arrowright"></i></p>
+			<ul class="mui-table-view">
+				<li class="view-only-lan flex">
+					<div class="flex-1 column-desc">
+						<p class="column-box">
+							<span class="column-tag">专栏</span>换个口味吧，送你一些2000年代的‘大烂歌’
+						</p>
+						<span class="bookeds">阅读：1511</span>
+					</div>
+					<img src="../../static/images/userimg.jpg" alt="" class="column-img"/>
+				</li>
+				<li class="view-only-lan flex">
+					<div class="flex-1 column-desc">
+						<p class="column-box">
+							<span class="column-tag">专栏</span>换个口味吧，送你一些2000年代的‘大烂歌’
+						</p>
+						<span class="bookeds">阅读：1511</span>
+					</div>
+					<img src="../../static/images/userimg.jpg" alt="" class="column-img"/>
+				</li>
+				<li class="view-only-lan flex">
+					<div class="flex-1 column-desc">
+						<p class="column-box">
+							<span class="column-tag">专栏</span>换个口味吧，送你一些2000年代的‘大烂歌’
+						</p>
+						<span class="bookeds">阅读：1511</span>
+					</div>
+					<img src="../../static/images/userimg.jpg" alt="" class="column-img"/>
+				</li>
+			</ul>
+			<p class="other-title"><span>直播电台</span><i class="mui-icon mui-icon-arrowright"></i></p>
+			<ul class="mui-table-view mui-grid-view">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#">
+						<img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#">
+						<img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#"><img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#">
+						<img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#"><img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="#">
+						<img class="media-object" src="../../static/images/header.jpg">
+						<span class="song-title1">欢迎</span>
+						<p class="mui-ellipsis song-txt">欢迎使用网易云音乐</p>
+					</a>
+				</li>
+			</ul>
+			<div class="end-foooter">
+				<span class="column-tag-btn">调整栏目顺序</span>
+				<p class="end-txt"><span>看视频，发现更多有趣的内容</span><i class="mui-icon mui-icon-arrowright"></i></p>
+			</div>
 		</div>
 		<script type="text/javascript">
 			mui.init();
@@ -72,7 +250,7 @@
 					left: '0px',
 					height: '160px',
 					width: '100%',
-					position: 'absolute',
+					position: 'static',
 					images: [{
 						src: '../../static/images/bg.jpg',
 						width: '100%'

@@ -10,13 +10,13 @@
 </head>
 <body>
 	<div id="app">
-		<header class="mui-bar mui-bar-nav first-header">
-			<a class="mui-icon mui-action-menu mui-icon-bars"></a>
-			<a class="mui-icon mui-icon-search mui-pull-right" onclick="showmask()"></a>
+		<header class="mui-bar mui-bar-nav first-header" style="min-height: 65px;">
+			<a class="mui-icon mui-action-menu mui-icon-bars" @click="changemenu"></a>
+			<a class="mui-icon mui-icon-search mui-pull-right"></a>
 			<h1 class="mui-title header-tab-title">
-				<a class="iconfont icon-yinyue yinyue-size mui-control-item header-tab-active" data-wid='music'></a>
-				<a class="iconfont icon-wangyiyunyinlezizhi wangyiyunyinlezizhi-size mui-control-item"  data-wid='all'></a>
-				<a class="iconfont icon-shejiao shejiao-size mui-control-item" data-wid='friend'></a>
+				<a class="iconfont icon-yinyue yinyue-size mui-control-item header-tab-active" data-wid='music' @click="changeTab"></a>
+				<a class="iconfont icon-wangyiyunyinlezizhi wangyiyunyinlezizhi-size mui-control-item"  data-wid='all' @click="changeTab"></a>
+				<a class="iconfont icon-shejiao shejiao-size mui-control-item" data-wid='friend' @click="changeTab"></a>
 			</h1>
 		</header>
 		<nav class="mui-bar mui-bar-tab footer-bar">
@@ -41,160 +41,191 @@
 <script src="static/js/webviewGroup.js" type="text/javascript" charset="utf-8"></script>
 <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
 <script type="text/javascript" charset="utf-8">
-	mui.init({
-		swipeBack: false,
-		beforeback: back
-	});
-	var menu = null,
-	showMenu = false;
-	window.plus ? plusReady() : document.addEventListener('plusready', plusReady, false);
-	function plusReady(){
-		//获取是否支持沉浸式状态栏
-		var flag = plus.navigator.isImmersedStatusbar();
-		var topoffset = 45;
-		if(flag){
-			topoffset += Math.round(plus.navigator.getStatusbarHeight());
-			var header = document.querySelector('.first-header')
-			header.style.height = topoffset + 'px';
-			header.style.paddingTop = plus.navigator.getStatusbarHeight() + 'px'
-		}
-		//侧边栏
-		document.querySelector('.mui-action-menu').addEventListener('tap',openMenu,false)
-		main = plus.webview.currentWebview();
-		//setTimeout的目的是等待窗体动画结束后，再执行create webview操作，避免资源竞争，导致窗口动画不流畅；
-		setTimeout(function() {
-			//侧滑菜单默认隐藏，这样可以节省内存；
-			menu = mui.preload({
-				id: 'menu',
-				url: 'indexMenu.html',
-				styles: {
-					left: 0,
-					width: '83%',
-					zindex: 9997
-				}
-			});
-		}, 300);
-		//初始化tab页面
-		var group = new webviewGroup(plus.webview.currentWebview().id, {
-			items: [{
-				id: "music",
-				url: "compontent/music.html",
-				extras: {}
-			}, {
-				id: "all",
-				url: "compontent/all.html",
-				extras: {}
-			}, {
-				id: "friend",
-				url: "compontent/friend.html",
-				extras: {}
-			}],
-			onChange: function(obj) {
-				var c = document.querySelector(".mui-control-item.header-tab-active");
-				c?c.classList.remove("header-tab-active"):"";
-				document.querySelector(".header-tab-title .mui-control-item:nth-child(" + (parseInt(obj.index) + 1) + ")").classList.add("header-tab-active");
-			}
-		});
-		//绑定事件
-		mui(".header-tab-title").on("tap", ".mui-control-item", function(e) {
-			var wid = this.getAttribute("data-wid");
-			group.switchTab(wid);
-		});
-		//读取本地存储，检查是否为首次启动
-		var showGuide = plus.storage.getItem("lauchFlag");
-		//仅支持竖屏显示
-		plus.screen.lockOrientation("portrait-primary");
-		if(showGuide) {
-			//有值，说明已经显示过了，无需显示；
-			//关闭splash页面；
-			plus.navigator.closeSplashscreen();
-			plus.navigator.setFullscreen(false);
-		} else {
-			//显示启动导航
-			mui.openWindow({
-				id: 'guide',
-				url: 'guide.html',
-				styles: {popGesture: "none"},
-				show: {aniShow: 'none'},
-				waiting: {autoShow: false}
-			});
-		}
-	}
-	//侧边栏
-	/**
-	 * 显示菜单菜单
-	 */
-	function openMenu(){
-		if(!showMenu) {
-			//侧滑菜单处于隐藏状态，则立即显示出来；
-			menu.show('none', 0, function() {
-				menu.setStyle({
-					left: '0%',
-					transition: {
-						duration: 150
-					}
-				});
-			});
-			showMenu = true;
-		}
-	}
-	/**
-	 * 关闭侧滑菜单（业务部分）
-	 */
-	function _closeMenu() {
-		if(showMenu) {
-			//主窗体开始侧滑；
-			menu.setStyle({
-				left: '-83%',
-				transition: {
-					duration: 150
-				}
-			});
-			//等窗体动画结束后，隐藏菜单webview，节省资源；
-			setTimeout(function() {
-				menu.hide();
-			}, 200);
-			//改变标志位
-			showMenu = false;
-		}
-	}
-	//在android4.4中的swipe事件，需要preventDefault一下，否则触发不正常
-	//故，在dragleft，dragright中preventDefault
-	window.addEventListener('dragright', function(e) {
-		e.detail.gesture.preventDefault();
-	});
-	window.addEventListener('dragleft', function(e) {
-		e.detail.gesture.preventDefault();
-	});
-	//主界面向左滑动，若菜单已显示，则关闭菜单；否则，不做任何操作；
-	window.addEventListener("swipeleft", _closeMenu);
-	//menu页面向左滑动，关闭菜单；
-	window.addEventListener("menu:swipeleft", _closeMenu);
-	//关闭侧边栏之前的操作
-	function back() {
-		if(showMenu) {
-			//菜单处于显示状态，返回键应该先关闭菜单,阻止主窗口执行mui.back逻辑；
-			_closeMenu();
-			return false;
-		} else {
-			//菜单处于隐藏状态，执行返回时，要先close菜单页面，然后继续执行mui.back逻辑关闭主窗口；
-			menu.close('none');
-			return true;
-		}
-	}
-	mui.menu = function() {showMenu ? _closeMenu() : openMenu();}
 	var vm = new Vue({
 		el:'#app',
 		data:{
-			statusMusic:false
+			statusMusic:false,
+			group:null,
+			showMenu:false,
+			menu:null,
+			plusReady:null,
+			view:null
+		},
+		created(){
+			this.plusinit()
 		},
 		methods:{
-			status:function(){this.statusMusic = this.statusMusic ? false : true;}
+			status:function(){this.statusMusic = this.statusMusic ? false : true;},
+			//关闭侧边栏之前的操作
+			back:function(){
+				if(this.showMenu) {
+					//菜单处于显示状态，返回键应该先关闭菜单,阻止主窗口执行mui.back逻辑；
+					this._closeMenu();
+					return false;
+				} else {
+					//菜单处于隐藏状态，执行返回时，要先close菜单页面，然后继续执行mui.back逻辑关闭主窗口；
+					this.menu.close('none');
+					return true;
+				}
+			},
+			/**
+			 * 关闭侧滑菜单（业务部分）
+			 */
+			_closeMenu:function(){
+				var self = this;
+				if(this.showMenu) {
+					//主窗体开始侧滑；
+					self.menu.setStyle({
+						left: '-83%',
+						transition: {
+							duration: 150
+						}
+					});
+					//等窗体动画结束后，隐藏菜单webview，节省资源；
+					setTimeout(function() {
+						self.menu.hide();
+					}, 200);
+					//改变标志位
+					this.showMenu = false;
+					//this.view.close();
+				}
+			},
+			/**
+			 * 显示菜单菜单
+			 */
+			openMenu:function(){
+				var self = this;
+				if(!self.showMenu) {
+					//侧滑菜单处于隐藏状态，则立即显示出来；
+					self.menu.show('none', 0, function() {
+						self.menu.setStyle({
+							left: '0%',
+							transition: {
+								duration: 150
+							},
+							zindex:9997
+						});
+					});
+					self.showMenu = true;
+				}
+				//this.createView()
+			},
+			//初始化执行操作
+			plusinit:function(){
+				var self = this;
+				self.plusReady = mui.plusReady(function(){
+					self.isImmersed() //获取是否支持沉浸式状态栏
+					self.groupFn() //webviewgroup
+					self.firstApp() //首次启动app
+				})
+			},
+			isImmersed:function(){
+				//获取是否支持沉浸式状态栏
+				var flag = plus.navigator.isImmersedStatusbar();
+				var topoffset = 45;
+				if(flag){
+					topoffset += Math.round(plus.navigator.getStatusbarHeight());
+					var header = document.querySelector('.first-header')
+					header.style.height = topoffset + 'px';
+					header.style.paddingTop = plus.navigator.getStatusbarHeight() + 'px'
+				}
+			},
+			groupFn:function(){
+				this.group = new webviewGroup(plus.webview.currentWebview().id, {
+					items: [{
+						id: "music",
+						url: "compontent/music.html",
+						extras: {}
+					}, {
+						id: "all",
+						url: "compontent/all.html",
+						extras: {}
+					}, {
+						id: "friend",
+						url: "compontent/friend.html",
+						extras: {}
+					}],
+					onChange: function(obj) {
+						var c = document.querySelector(".mui-control-item.header-tab-active");
+						c?c.classList.remove("header-tab-active"):"";
+						document.querySelector(".header-tab-title .mui-control-item:nth-child(" + (parseInt(obj.index) + 1) + ")").classList.add("header-tab-active");
+					}
+				});
+			},
+			firstApp:function(){
+				//读取本地存储，检查是否为首次启动
+				var showGuide = plus.storage.getItem("lauchFlag");
+				//仅支持竖屏显示
+				plus.screen.lockOrientation("portrait-primary");
+				if(showGuide) {
+					//有值，说明已经显示过了，无需显示；
+					//关闭splash页面；
+					plus.navigator.closeSplashscreen();
+					plus.navigator.setFullscreen(false);
+				} else {
+					//显示启动导航
+					mui.openWindow({
+						id: 'guide',
+						url: 'guide.html',
+						styles: {popGesture: "none"},
+						show: {aniShow: 'none'},
+						waiting: {autoShow: false}
+					});
+				}
+			},
+			//绑定事件切换页面效果
+			changeTab:function(e){
+				var wid = e.target.getAttribute("data-wid");
+				this.group.switchTab(wid);
+			},
+			//显示侧边栏
+			changemenu:function(){
+				this.openMenu()
+			},
+			// 创建原生View控件
+			createView:function (){
+				var styles = {top:'0',left:'0px',height:'100%',width:'100%',zindex:-1}
+				this.view = new plus.nativeObj.View('mask',styles);
+				// 绘制矩形
+				this.view.drawRect({color:'rgba(0,0,0,0.5)'},styles);
+				this.view.show();
+			}
+		},
+		mounted:function(){
+			var self = this;
+			mui.init({
+				swipeBack: false,
+				beforeback: self.back
+			});
+			//setTimeout的目的是等待窗体动画结束后，再执行create webview操作，避免资源竞争，导致窗口动画不流畅；
+			setTimeout(function() {
+				//侧滑菜单默认隐藏，这样可以节省内存；
+				self.menu = mui.preload({
+					id: 'menu',
+					url: 'indexMenu.html',
+					styles: {
+						left: 0,
+						width: '83%',
+						zindex: 9997
+					}
+				});
+			}, 300);
+			
+			//在android4.4中的swipe事件，需要preventDefault一下，否则触发不正常
+			//故，在dragleft，dragright中preventDefault
+			window.addEventListener('dragright', function(e) {
+				e.detail.gesture.preventDefault();
+			});
+			window.addEventListener('dragleft', function(e) {
+				e.detail.gesture.preventDefault();
+			});
+			//主界面向左滑动，若菜单已显示，则关闭菜单；否则，不做任何操作；
+			window.addEventListener("swipeleft", self._closeMenu);
+			//menu页面向左滑动，关闭菜单；
+			window.addEventListener("menu:swipeleft", self._closeMenu);
+			mui.menu = function() {self.showMenu ? self._closeMenu() : self.openMenu();}
 		}
 	})
-	var mask = mui.createMask();
-	function showmask(){
-		mask.show()
-	}
+	
 </script>
 </html>
